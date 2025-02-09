@@ -13,12 +13,26 @@ const forumContent = document.querySelector('.forum-content');
 forumBtn.addEventListener('click', function() {
     forumContent.style.display = forumContent.style.display === 'block' ? 'none' : 'block';
 });
-
 // Закрыть dropdown при клике вне его
 window.addEventListener('click', function(event) {
     if (!event.target.matches('.forum-btn')) {
         if (forumContent.style.display === 'block') {
             forumContent.style.display = 'none';
+        }
+    }
+});
+// Функциональность для курсов
+const coursesBtn = document.querySelector('.courses-btn');
+const coursesContent = document.querySelector('.courses-content');
+
+coursesBtn.addEventListener('click', function() {
+    coursesContent.style.display = coursesContent.style.display === 'block' ? 'none' : 'block';
+});
+// Закрыть dropdown при клике вне его
+window.addEventListener('click', function(event) {
+    if (!event.target.matches('.courses-btn')) {
+        if (coursesContent.style.display === 'block') {
+            coursesContent.style.display = 'none';
         }
     }
 });

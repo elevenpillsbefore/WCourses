@@ -92,6 +92,49 @@ header h1 {
 .forum-content a:hover {
     background-color: #0B0C10;
     color: #66FCF1;
+} 
+.courses-dropdown {
+    position: relative;
+}
+
+.courses-btn {
+    background-color: #46A29E; /* Акцентный цвет 2 */
+    color: #0B0C10;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.courses-btn:hover {
+    background-color: #66FCF1; /* Акцентный цвет 1 */
+    transform: translateY(-2px);
+}
+
+.courses-content {
+    display: none;
+    position: absolute;
+    background-color: #1F2833;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    border-radius: 5px;
+    z-index: 1;
+    right: 0;
+}
+
+.courses-content a {
+    color: #C5C6C7;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s ease;
+}
+
+.courses-content a:hover {
+    background-color: #0B0C10;
+    color: #66FCF1;
 }
 
 section {
