@@ -297,13 +297,25 @@ section + section {
 /* Светлая тема */
 .light-theme {
     background-color: #FFFFFF; /* Белый основной фон */
-    color: #263238; /* Темно-серый текст */
+    color: #263238; /* Темно-серый текст (по умолчанию) */
     transition: background 0.5s ease, color 0.5s ease; /* Плавный переход */
 }
-/* Заголовок WCourses */
+
+/* Заголовок WCourses (темно-серый цвет) */
 .light-theme header h1 {
-    color: #263238; /* текст */
+    color: #263238; /* Темно-серый текст */
 }
+
+/* Заголовки секций (например, "Справочные материалы", "Основы кибербезопасности") */
+.light-theme h2 {
+    color: #000000; /* Черный текст */
+}
+
+/* Обычный текст внутри секций */
+.light-theme p {
+    color: #546E7A; /* Серый второстепенный текст */
+}
+
 /* Градиент для элементов */
 .light-theme section,
 .light-theme .dropdown-content,
@@ -320,40 +332,23 @@ section + section {
     border-bottom: 2px solid #00BCD4; /* Бирюзовая подчеркивание */
 }
 
-/* Общие стили для кнопок */
-.light-theme .home-btn,
-.light-theme .forum-btn,
-.light-theme .courses-btn {
-    background-color: #80DEEA; /* Бирюзовый цвет */
-    color: #000000; /*  текст */
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-size: 1em;
-    transition: all 0.3s ease;
+/* Навигация */
+.light-theme nav {
+    background-color: #1F2833; /* Цвет фона навигации */
+    color: #C5C6C7; /* Цвет текста в навигации */
 }
 
-/* Эффект при наведении */
-.light-theme .home-btn:hover,
-.light-theme .forum-btn:hover,
-.light-theme .courses-btn:hover {
-    background-color: #80DEEA; /* Светло-бирюзовый при наведении */
-    transform: translateY(-2px); /* Небольшой эффект подъема */
-}
-
-/* Выпадающее содержимое (Forum и Courses) */
+/* Применяем тот же цвет фона для других элементов */
 .light-theme .forum-content,
 .light-theme .courses-content {
-    background: linear-gradient(to bottom, #E0F7FA, #B2EBF2); /* Линейный градиент для выпадающего меню */
-    border: 1px solid #00BCD4; /* Бирюзовая граница */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    background-color: #1F2833; /* Цвет фона навигации */
+    color: #C5C6C7; /* Цвет текста в выпадающем меню */
 }
 
+/* Стили для выпадающих списков "Комьюнити" и "Обучение" */
 .light-theme .forum-content a,
 .light-theme .courses-content a {
-    color: #263238; /* Темно-серый текст ссылок */
+    color: #C5C6C7; /* Цвет текста ссылок */
     text-decoration: none;
     display: block;
     padding: 10px 15px;
@@ -362,32 +357,26 @@ section + section {
 
 .light-theme .forum-content a:hover,
 .light-theme .courses-content a:hover {
-    background-color: #80DEEA; /* Светло-бирюзовый при наведении */
-    color: #FFFFFF; /* Белый текст */
+    background-color: #00BCD4; /* Бирюзовый цвет при наведении */
+    color: #FFFFFF; /* Белый текст при наведении */
 }
-
-/* Второстепенный текст */
-.light-theme p {
-    color: #546E7A; /* Серый второстепенный текст */
-}
-
-/* Футер */
 .light-theme footer {
+    background-color: #ECEFF1; /* Более светлый фон для футера */
+    border-top: 2px solid #3498DB; /* Голубая граница */
     text-align: center;
     padding: 15px;
-    border-top: 2px solid #00BCD4; /* Бирюзовая граница */
 }
 
 .light-theme footer p {
-    color: #263238; /* Темно-серый текст */
+    color: #3498DB; /* Голубой текст в футере */
     margin: 0;
 }
 
 /* Поиск */
 .light-theme .search input {
     background-color: #FFFFFF; /* Белый фон для поля поиска */
-    color: #263238; /* Темно-серый текст */
-    border: 2px solid #00BCD4; /* Бирюзовая граница */
+    color: #2C3E50; /* Темно-синий текст */
+    border: 2px solid #3498DB; /* Голубая граница */
     border-radius: 5px;
     padding: 10px;
     width: 300px;
@@ -396,29 +385,16 @@ section + section {
 
 .light-theme .search input:focus {
     outline: none;
-    box-shadow: 0 0 8px #00BCD4; /* Бирюзовая тень при фокусе */
+    box-shadow: 0 0 8px #3498DB; /* Голубая тень при фокусе */
 }
 
+/* Placeholder для поиска */
 .light-theme .search input::placeholder {
-    color: #546E7A; /* Серый placeholder */
+    color: #888888; /* Серый placeholder */
 }
-
-/* Выпадающее меню */
-.light-theme .forum-content a,
-.light-theme .courses-content a {
-    color: #263238; /* Темно-серый текст ссылок */
+a.lesson-link {
     text-decoration: none;
-    display: block;
-    padding: 10px 15px;
-    transition: background 0.3s ease, color 0.3s ease;
 }
-
-.light-theme .forum-content a:hover,
-.light-theme .courses-content a:hover {
-    background-color: #80DEEA; /* Светло-бирюзовый при наведении */
-    color: #FFFFFF; /* Белый текст */
-}
-
 footer {
     background-color: #1F2833;
     text-align: center;
