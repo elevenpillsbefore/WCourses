@@ -408,3 +408,48 @@ footer p {
     color: #66FCF1;
     margin: 0;
 }
+/* Стили для теста */
+#quiz {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+#submit-btn {
+    background-color: #00BCD4;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+#submit-btn:hover {
+    background-color: #80DEEA;
+    transform: translateY(-2px);
+}
+
+#result {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#result h2 {
+    color: #000000;
+}
+
+#result p {
+    color: #546E7A;
+}
