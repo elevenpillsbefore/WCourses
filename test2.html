@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WCourses - Тест по Уроку 2</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header>
+        <h1>WCourses - Будь в курсе!</h1>
+        <div class="header-right">
+            <!-- Кнопка Главная -->
+            <button class="home-btn" onclick="location.href='index.html'">Главная</button>
+            <!-- Курсы -->
+            <a href = "Course1.html"><button class="courses-btn">Обучение</button></a>
+            <!-- Кнопка смены темы -->
+            <button id="theme-toggle-btn" title="Переключить тему">
+                🌗
+            </button>
+        </div>
+    </header>
+
+    <!-- Содержание теста -->
+    <section id="test-intro">
+        <h2>Тест по Уроку 2: Типы кибератак</h2>
+        <p>Проверьте свои знания о типах кибератак. Ответьте на все вопросы и получите результат в конце.</p>
+    </section>
+
+    <section id="quiz">
+        <form id="quiz-form">
+            <!-- Вопрос 1 -->
+            <div class="question">
+                <h3>1. Что такое фишинг?</h3>
+                <label><input type="radio" name="q1" value="a"> А) Использование слабых паролей</label><br>
+                <label><input type="radio" name="q1" value="b"> Б) Социальная инженерия для кражи данных</label><br>
+                <label><input type="radio" name="q1" value="c"> В) Защита от вирусов</label><br>
+            </div>
+
+            <!-- Вопрос 2 -->
+            <div class="question">
+                <h3>2. Что такое рansomware?</h3>
+                <label><input type="radio" name="q2" value="a"> А) Антивирусное ПО</label><br>
+                <label><input type="radio" name="q2" value="b"> Б) Вредоносное ПО, которое блокирует доступ к данным до выплаты выкупа</label><br>
+                <label><input type="radio" name="q2" value="c"> В) Программа для создания резервных копий</label><br>
+            </div>
+
+            <!-- Вопрос 3 -->
+            <div class="question">
+                <h3>3. Что такое DDoS-атака?</h3>
+                <label><input type="radio" name="q3" value="a"> А) Атака, которая крадет ваши данные</label><br>
+                <label><input type="radio" name="q3" value="b"> Б) Атака, которая перегружает серверы трафиком</label><br>
+                <label><input type="radio" name="q3" value="c"> В) Атака, которая изменяет ваши файлы</label><br>
+            </div>
+
+            <!-- Кнопка отправки результатов -->
+            <button type="button" id="submit-btn">Проверить результат</button>
+        </form>
+
+        <!-- Результат теста -->
+        <div id="result" style="display: none;">
+            <h2>Результат теста:</h2>
+            <p id="result-text"></p>
+        </div>
+    </section>
+
+    <!-- Подвал -->
+    <footer>
+        <p>&copy; 2025 WCourses. Все права защищены</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Правильные ответы для Урока 2
+        const correctAnswers = {
+            q1: "b", // Фишинг — социальная инженерия для кражи данных.
+            q2: "b", // Рansomware — вредоносное ПО, которое блокирует доступ к данным.
+            q3: "b", // DDoS-атака — перегрузка серверов трафиком.
+        };
+
+        // Обработчик кнопки "Проверить результат"
+        document.getElementById("submit-btn").addEventListener("click", function () {
+            const form = document.getElementById("quiz-form");
+            let score = 0;
+            let resultText = "";
+
+            // Проверяем каждый вопрос
+            for (let question in correctAnswers) {
+                const selectedAnswer = form[question].value;
+                if (selectedAnswer === correctAnswers[question]) {
+                    score++;
+                }
+            }
+
+            // Определяем результат
+            if (score >= 2) {
+                resultText = `Отлично! Вы правильно ответили на ${score} из 3 вопросов. Ваш уровень знаний высок!`;
+            } else {
+                resultText = `К сожалению, вы правильно ответили только на ${score} из 3 вопросов. Рекомендуется повторить материал урока.`;
+            }
+
+            // Показываем результат
+            const resultDiv = document.getElementById("result");
+            const resultTextElement = document.getElementById("result-text");
+            resultTextElement.textContent = resultText;
+            resultDiv.style.display = "block";
+        });
+    </script>
+</body>
+</html>
