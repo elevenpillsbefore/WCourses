@@ -15,42 +15,8 @@ document.querySelectorAll('.dropdown-btn').forEach(button => {
     });
 });
 
-// Функциональность для кнопки "Форум"
-const forumBtn = document.querySelector('.forum-btn');
-const forumContent = document.querySelector('.forum-content');
-if (forumBtn && forumContent) {
-    forumBtn.addEventListener('click', function () {
-        toggleDropdown(forumContent);
-    });
-}
-
-// Функциональность для кнопки "Курсы"
-const coursesBtn = document.querySelector('.courses-btn');
-const coursesContent = document.querySelector('.courses-content');
-if (coursesBtn && coursesContent) {
-    coursesBtn.addEventListener('click', function () {
-        toggleDropdown(coursesContent);
-    });
-}
-
 // Закрыть все dropdown при клике вне их
 window.addEventListener('click', function (event) {
-    // Закрытие форума
-    if (!event.target.matches('.forum-btn')) {
-        const forumContent = document.querySelector('.forum-content');
-        if (forumContent && forumContent.style.display === 'block') {
-            forumContent.style.display = 'none';
-        }
-    }
-
-    // Закрытие курсов
-    if (!event.target.matches('.courses-btn')) {
-        const coursesContent = document.querySelector('.courses-content');
-        if (coursesContent && coursesContent.style.display === 'block') {
-            coursesContent.style.display = 'none';
-        }
-    }
-
     // Закрытие других dropdown
     document.querySelectorAll('.dropdown-content').forEach(content => {
         if (!event.target.closest('.dropdown-item') && content.style.display === 'block') {
@@ -108,3 +74,4 @@ document.addEventListener('DOMContentLoaded', () => {
         themeToggleBtn.textContent = savedTheme === 'light' ? '🌙' : '☀️';
     }
 });
+

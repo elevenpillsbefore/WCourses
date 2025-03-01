@@ -73,8 +73,9 @@
             <!-- Кнопка отправки результатов -->
             <button type="button" id="submit-btn">Проверить результат</button>
         </form>
-
-        <!-- Результат теста -->
+    </section>
+       <!-- Результат теста -->
+    <section>
         <div id="result" style="display: none;">
             <h2>Результат теста:</h2>
             <p id="result-text"></p>
@@ -87,5 +88,46 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Правильные ответы
+const correctAnswers = {
+    q1: "b", // Кибербезопасность — это защита компьютерных систем, сетей и данных.
+    q2: "b", // Двухфакторная аутентификация помогает предотвратить взлом.
+    q3: "c", // Антивирусное ПО должно обновляться регулярно.
+    q4: "b", // Не рекомендуется размещать личную информацию.
+    q5: "b", // Рansomware — это вредоносное ПО, которое блокирует доступ к данным.
+};
+
+// Обработчик кнопки "Проверить результат"
+document.getElementById("submit-btn").addEventListener("click", function () {
+    const form = document.getElementById("quiz-form");
+    let score = 0;
+    let resultText = "";
+
+    // Проверяем каждый вопрос
+    for (let question in correctAnswers) {
+        const selectedAnswer = form[question].value;
+        if (selectedAnswer === correctAnswers[question]) {
+            score++;
+        }
+    }
+
+    // Определяем результат
+    if (score >= 4) {
+        resultText = `Отлично! Вы правильно ответили на ${score} из 5 вопросов. Ваш уровень знаний высок!`;
+    } else if (score >= 2) {
+        resultText = `Неплохо! Вы правильно ответили на ${score} из 5 вопросов. Попробуйте повторить материал курса.`;
+    } else {
+        resultText = `К сожалению, вы правильно ответили только на ${score} из 5 вопросов. Рекомендуется повторить материал курса.`;
+    }
+
+    // Показываем результат
+    const resultDiv = document.getElementById("result");
+    const resultTextElement = document.getElementById("result-text");
+    resultTextElement.textContent = resultText;
+    resultDiv.style.display = "block";
+});
+
+    </script>
 </body>
 </html>

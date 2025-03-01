@@ -48,10 +48,10 @@
 
             <!-- Вопрос 3 -->
             <div class="question">
-                <h3>3. Что такое DDoS-атака?</h3>
-                <label><input type="radio" name="q3" value="a"> А) Атака, которая крадет ваши данные</label><br>
-                <label><input type="radio" name="q3" value="b"> Б) Атака, которая перегружает серверы трафиком</label><br>
-                <label><input type="radio" name="q3" value="c"> В) Атака, которая изменяет ваши файлы</label><br>
+                <h3>3. В каком году произошла первая известная кибератака?</h3>
+                <label><input type="radio" name="q3" value="a"> А) В 1980 году</label><br>
+                <label><input type="radio" name="q3" value="b"> Б) В 1971 году</label><br>
+                <label><input type="radio" name="q3" value="c"> В) В 2000 году</label><br>
             </div>
 
             <!-- Кнопка отправки результатов -->
@@ -72,40 +72,57 @@
 
     <script src="script.js"></script>
     <script>
-        // Правильные ответы для Урока 1
-        const correctAnswers = {
-            q1: "b", // Кибербезопасность — это защита компьютерных систем, сетей и данных.
-            q2: "a", // Три принципа: конфиденциальность, целостность, доступность.
-            q3: "b", // DDoS-атака — это перегрузка серверов трафиком.
-        };
+        // Правильные ответы для теста
+const correctAnswers1 = {
+    q1: "b", // Защита компьютерных систем, сетей и данных от цифровых атак.
+    q2: "a", // Конфиденциальность, целостность, доступность.
+    q3: "b", // Атака, которая перегружает серверы трафиком.
+};
 
-        // Обработчик кнопки "Проверить результат"
-        document.getElementById("submit-btn").addEventListener("click", function () {
-            const form = document.getElementById("quiz-form");
-            let score = 0;
-            let resultText = "";
+// Обработчик кнопки "Проверить результат"
+document.getElementById("submit-btn").addEventListener("click", function () {
+    const form = document.getElementById("quiz-form");
+    let score = 0;
+    let resultText = "";
 
-            // Проверяем каждый вопрос
-            for (let question in correctAnswers) {
-                const selectedAnswer = form[question].value;
-                if (selectedAnswer === correctAnswers[question]) {
-                    score++;
-                }
-            }
+    // Проверяем, что все вопросы имеют выбранный ответ
+    let allQuestionsAnswered = true;
 
-            // Определяем результат
-            if (score >= 2) {
-                resultText = `Отлично! Вы правильно ответили на ${score} из 3 вопросов. Ваш уровень знаний высок!`;
-            } else {
-                resultText = `К сожалению, вы правильно ответили только на ${score} из 3 вопросов. Рекомендуется повторить материал урока.`;
-            }
+    for (let question in correctAnswers1) {
+        const selectedAnswer = form[question]?.value; // Получаем значение выбранного ответа
 
-            // Показываем результат
-            const resultDiv = document.getElementById("result");
-            const resultTextElement = document.getElementById("result-text");
-            resultTextElement.textContent = resultText;
-            resultDiv.style.display = "block";
-        });
-    </script>
+        // Если ответ не выбран, показываем предупреждение
+        if (!selectedAnswer) {
+            allQuestionsAnswered = false;
+            alert("Пожалуйста, ответьте на все вопросы!");
+            break; // Прерываем цикл
+        }
+
+        // Если ответ правильный, увеличиваем счетчик
+        if (selectedAnswer === correctAnswers1[question]) {
+            score++;
+        }
+    }
+
+    // Если все вопросы отвечены, показываем результат
+    if (allQuestionsAnswered) {
+        const totalQuestions = Object.keys(correctAnswers1).length;
+
+        if (score === totalQuestions) {
+            resultText = `Отлично! Вы правильно ответили на все ${score} из ${totalQuestions} вопросов. Ваш уровень знаний высок!`;
+        } else if (score >= 1) {
+            resultText = `Неплохо! Вы правильно ответили на ${score} из ${totalQuestions} вопросов. Попробуйте повторить материал урока.`;
+        } else {
+            resultText = `К сожалению, вы правильно ответили только на ${score} из ${totalQuestions} вопросов. Рекомендуется повторить материал урока.`;
+        }
+
+        // Показываем результат
+        const resultDiv = document.getElementById("result");
+        const resultTextElement = document.getElementById("result-text");
+        resultTextElement.textContent = resultText;
+        resultDiv.style.display = "block";
+    }
+});
+    </script>    
 </body>
 </html>
